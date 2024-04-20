@@ -1,12 +1,11 @@
 package webSpring.startspring.repository;
 
+import org.springframework.stereotype.Repository;
 import webSpring.startspring.domain.Member;
 
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
-import java.util.Optional;
+import java.util.*;
 
+@Repository
 public class MemoryMemberRepository implements MemberRepository{
     private static Map<Long, Member> store = new HashMap<>();
     private static long sequence = 0L;
@@ -20,16 +19,23 @@ public class MemoryMemberRepository implements MemberRepository{
     
     @Override
     public Optional<Member> findById(Long id) {
+        // store에서 값이 null이 와도 optional로 감싸서 null을 반환하여 클라이언트에서 사용가능하다
         return Optional.ofNullable(store.get(id));
     }
 
     @Override
     public Optional<Member> findByName(String name) {
-        return Optional.empty();
+        return store.values().stream()
+                .filter(member -> member.getName().equals(name))
+                .findAny();
     }
 
     @Override
     public List<Member> findAll() {
-        return null;
+        return new ArrayList<>(store.values());
+    }
+
+    public void clearStore(){
+        store.clear();
     }
 }
