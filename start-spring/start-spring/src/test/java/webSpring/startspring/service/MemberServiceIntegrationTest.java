@@ -25,6 +25,7 @@ class MemberServiceIntegrationTest {
     MemberRepository memberRepository;
 
     @Test
+    //@Commit 하면 db에 저장됨
     void 회원가입() {   //void 회원가입() //test는 한글로도 많이 적음
         //given
         Member member = new Member();

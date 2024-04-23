@@ -1,5 +1,6 @@
 package webSpring.startspring.service;
 
+import jakarta.transaction.Transactional;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import webSpring.startspring.domain.Member;
@@ -10,7 +11,7 @@ import java.util.List;
 import java.util.Optional;
 
 
-
+@Transactional //jpa 쓸려면 꼭 적어주기
 public class MemberService {
     private final MemberRepository memberRepository;
 
