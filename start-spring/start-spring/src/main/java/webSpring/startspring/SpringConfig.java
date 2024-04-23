@@ -4,6 +4,7 @@ import jakarta.persistence.EntityManager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import webSpring.startspring.aop.TimeTraceAop;
 import webSpring.startspring.repository.*;
 import webSpring.startspring.service.MemberService;
 
@@ -34,6 +35,12 @@ public class SpringConfig {
     public MemberService memberService(){
         return new MemberService(memberRepository);
     }
+
+//    @Bean
+//    public TimeTraceAop timeTraceAop(){
+//        return new TimeTraceAop();
+//    }
+    // 이렇게 해도 되고 TimeTraceAop.java에서 @Component 써도 되고!
 
 //    @Bean
 //    public MemberRepository memberRepository(){
