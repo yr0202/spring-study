@@ -25,7 +25,7 @@ public class MemberController {
         return "members/createMemberForm";
     }
 
-    @PostMapping("/members/new")
+    @PostMapping("/members")
     public String create(MemberForm form) {
         Member member = new Member();
         member.setName(form.getName());
