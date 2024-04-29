@@ -16,7 +16,7 @@ import org.springframework.context.annotation.Configuration;
 
 //애플리케이션 전체를 설정하고 구성
 
-@Configuration
+@Configuration //스프링 컨테이너 생성
 public class AppConfig {
     @Bean
     public MemberService memberService(){
