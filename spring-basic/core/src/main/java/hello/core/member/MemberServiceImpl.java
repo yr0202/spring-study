@@ -1,8 +1,13 @@
 package hello.core.member;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Component;
+
+@Component // 스프링 빈으로 자동 설정 해주는 @
 public class MemberServiceImpl implements MemberService{
     private final MemberRepository memberRepository;
 
+    @Autowired //@Component를 쓰면 빈에 자동으로 들어가지만 의존관계 설정하기 어려움 @Autowired로 의존관계 주입
     public MemberServiceImpl(MemberRepository memberRepository) {
         this.memberRepository = memberRepository;
     }
