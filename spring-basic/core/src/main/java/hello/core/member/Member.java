@@ -5,6 +5,8 @@ public class Member {
     private String name;
     private  Grade grade;
 
+    String str = "asdf";
+
     public Member(Long id, String name, Grade grade) {
         this.id = id;
         this.name = name;
